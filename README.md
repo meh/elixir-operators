@@ -12,8 +12,8 @@ Examples
 use Operators
 
 defrecord Derp, value: 23 do
-  defoperator :+ do
-    Operators.+(self.value, other)
+  defoperator a + b do
+    Operators.+(a.value, b)
   end
 end
 
