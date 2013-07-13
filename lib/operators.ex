@@ -53,19 +53,19 @@ defmodule Operators do
     chosen = cond do
       opts[:only] ->
         Enum.map opts[:only], fn name ->
-          { name, if name in [:!, :@], do: 1, else: 2 }
+          { name, if(name in [:!, :@], do: 1, else: 2) }
         end
 
       opts[:except] ->
         Enum.filter_map @list, fn { name, _ } ->
           not List.member?(opts[:except], name)
         end, fn { name, _ } ->
-          { name, if name in [:!, :@], do: 1, else: 2 }
+          { name, if(name in [:!, :@], do: 1, else: 2) }
         end
 
       true ->
         Enum.map @list, fn { name, _ } ->
-          { name, if name in [:!, :@], do: 1, else: 2 }
+          { name, if(name in [:!, :@], do: 1, else: 2) }
         end
     end
 
